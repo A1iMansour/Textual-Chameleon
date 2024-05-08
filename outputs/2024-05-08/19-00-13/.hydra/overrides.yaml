@@ -1,0 +1,3 @@
+- model.path=lamafolder/big-lama
+- indir=original_masked
+- outdir=lamafolder/lamafolder/lamaoutput

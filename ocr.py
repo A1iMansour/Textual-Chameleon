@@ -28,4 +28,4 @@ def gettext(image_path):
         for location, text, acc in r:
             print(f"Location: {location}, Text: {text}")
 
-gettext('images/624f3adced5fe-product.jpg')
+gettext('original_masked/165_jpg.rf.4caf175097e65b1287ba67ff2e7bad29.jpg')

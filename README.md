@@ -8,7 +8,7 @@
 - https://github.com/advimman/lama/
 - https://github.com/ultralytics/yolov5
 - https://github.com/JaidedAI/EasyOCR
-- https://github.com/ZepaMK/RTL-Inpainting
+- https://github.com/grenlayk/deep-text-edit
 
 # Papers
 

@@ -1,0 +1,9 @@
+[2024-05-08 20:32:25,018][saicinpainting.utils][WARNING] - Setting signal 10 handler <function print_traceback_handler at 0x762d4396fa30>
+[2024-05-08 20:32:25,019][__main__][CRITICAL] - Prediction failed due to expected str, bytes or os.PathLike object, not bool:
+Traceback (most recent call last):
+  File "/home/ali/Desktop/EECE798k/Textual-Chameleon/lamafolder/lama-main/bin/predict.py", line 63, in main
+    train_config_path = os.path.join(predict_config.model.path, 'config.yaml')
+  File "/usr/lib/python3.10/posixpath.py", line 76, in join
+    a = os.fspath(a)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
