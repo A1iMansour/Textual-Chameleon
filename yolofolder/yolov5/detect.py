@@ -269,8 +269,9 @@ def run(
 
         """Added this part to update exp_number in ocr.py"""
         last_part = os.path.basename(save_dir)
-
-        save_exp_number(load_exp_number()+1)
+        #print("thisssssssssss",last_part)
+        exp_number = int(''.join(filter(str.isdigit, last_part)))
+        save_exp_number(exp_number)
 
         """##############################################"""
        

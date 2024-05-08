@@ -3,7 +3,11 @@ import cv2
 import numpy as np
 
 from pathlib import Path
+detect_dir = Path(__file__).resolve().parent
+ocr_dir = detect_dir.parents[1]
+sys.path.append(str(ocr_dir))  #parent of yolofolder
 
+from number import save_exp_number,load_exp_number
 
 def yolo_to_pixel(yolo_x1, yolo_y1, yolo_x2, yolo_y2, img_width, img_height):
     """
@@ -51,7 +55,7 @@ def generate_masks(input_dir, output_dir):
         mask = np.zeros((img_height, img_width))
 
         try:
-            coordinates_file = open('YoloV5/yolov5/runs/detect/exp/labels/' + file.stem + '.txt', 'r')
+            coordinates_file = open(f'YoloV5/yolov5/runs/detect/exp{load_exp_number()}/labels/' + file.stem + '.txt', 'r')
         except FileNotFoundError:
             continue
 
