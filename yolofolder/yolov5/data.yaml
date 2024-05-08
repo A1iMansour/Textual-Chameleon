@@ -1,0 +1,7 @@
+train: ../Data/train/
+val: ../Data/valid/
+test: ../Data/test/
+
+
+nc: 1
+names: ["text"]
