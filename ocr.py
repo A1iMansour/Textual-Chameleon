@@ -2,6 +2,7 @@
 -make sure paths are correct ( they should be but double check)
 -exp_number.txt initialy should have 1 in it assuming runs/detect have 
     no exp yet except exp ( no exp2,exp3...etc)
+-image should be jpg
 """
 
 import os
