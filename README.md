@@ -13,6 +13,6 @@
 # Papers
 
 -https://ai.meta.com/research/publications/textstylebrush-transfer-of-text-aesthetics-from-a-single-example/?ref=louisbouchard.ai
-
+-https://aclanthology.org/2020.eamt-1.61.pdf
 -https://openaccess.thecvf.com/content_CVPR_2020/papers/Yang_SwapText_Image_Based_Texts_Transfer_in_Scenes_CVPR_2020_paper.pdf
 
