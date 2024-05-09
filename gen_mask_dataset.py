@@ -39,7 +39,7 @@ def yolo_to_pixel(yolo_x1, yolo_y1, yolo_x2, yolo_y2, img_width, img_height):
     return (pixel_x1, pixel_y1), (pixel_x2, pixel_y2)
 
 
-def generate_masks(input_dir, output_dir):
+def generate_masks(input_dir, output_dir, exp_num):
     """
     Generates a mask for each .png file in the specified input directory
     based on the output from YoloV5
@@ -47,39 +47,41 @@ def generate_masks(input_dir, output_dir):
 
     input_path = Path(input_dir)
     print(input_path)
-    for file in input_path.glob('*.jpg'):
+    file = input_dir
 
-        img = cv2.imread(str(file))
-        img_height, img_width, _ = img.shape
+    img = cv2.imread(str(file))
+    img_height, img_width, _ = img.shape
 
-        mask = np.zeros((img_height, img_width))
+    mask = np.zeros((img_height, img_width))
 
-        try:
-            coordinates_file = open(f'yolofolder/yolov5/runs/detect/exp{load_exp_number()}/labels/' + file.stem + '.txt', 'r')
-        except FileNotFoundError:
-            print("No coordinates found for", file.stem)
-            continue
+    try:
+        coordinates_file = open(f'yolofolder/yolov5/runs/detect/exp{exp_num}/labels/' + Path(file).stem + '.txt', 'r')
+    except FileNotFoundError:
+        print("No coordinates found for", Path(file).stem)
+        return
 
-        coordinates = coordinates_file.readlines()
-        coordinates_file.close()
-        print(coordinates)
-        for line in coordinates:
-            _, x1, y1, x2, y2 = map(float, line.split(' '))
+    coordinates = coordinates_file.readlines()
+    coordinates_file.close()
+    print(coordinates)
+    for line in coordinates:
+        _, x1, y1, x2, y2 = map(float, line.split(' '))
 
-            point1, point2 = yolo_to_pixel(x1, y1, x2, y2, img_width, img_height)
+        point1, point2 = yolo_to_pixel(x1, y1, x2, y2, img_width, img_height)
 
-            cv2.rectangle(mask, point1, point2, (255, 255, 255), -1)
+        cv2.rectangle(mask, point1, point2, (255, 255, 255), -1)
+    maskpath= output_dir + '/' + Path(file).stem + '_mask001.jpg'
+    cv2.imwrite(maskpath, mask)
 
-        cv2.imwrite(output_dir + '/' + file.stem + '_mask001.jpg', mask)
 
-
-def main(input_dir, output_dir):
+"""
+def main(input_dir, output_dir, exp_num):
     print('\nGenerating Masks\n')
 
-    generate_masks(input_dir, output_dir)
+    generate_masks(input_dir, output_dir, exp_num)
 
     print('Masks generated\n')
 
 
 if __name__ == "__main__":
     main("original_masked","original_masked")
+"""
