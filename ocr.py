@@ -8,7 +8,7 @@ from yolofolder.yolo import predictlabellocation, getcropedimage
 from number import load_exp_number
 result={}
 returend_result={}
-def gettext(exp_num):#each image in each sample has a key
+
 result={}
 returend_result={}
 def gettext(exp_num):#each image in each sample has a key
