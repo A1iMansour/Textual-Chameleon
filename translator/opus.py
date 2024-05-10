@@ -1,23 +1,21 @@
-from transformers import MarianMTModel, MarianTokenizer
+from transformers import T5Tokenizer, T5ForConditionalGeneration
 
-# Specify the model name
-model_name = 'Helsinki-NLP/opus-mt-en-mul'
+def translate(lang ,input):
 
-# Load the tokenizer
-tokenizer = MarianTokenizer.from_pretrained(model_name)
+    model_name = "t5-base"
+    tokenizer = T5Tokenizer.from_pretrained(model_name)
+    model = T5ForConditionalGeneration.from_pretrained(model_name)
+    text = f"translate English to {lang} and keep placeholder:( "
+    # Define the text to translate
+    for n in input:
+       text+="|||" +n 
+    
 
-# Load the model
-model = MarianMTModel.from_pretrained(model_name)
-model.save_pretrained("model")
-tokenizer.save_pretrained("tokenizer")
-# Define the text to translate
-text = '>>ara<< Hello, how are you?'
+    # Tokenize the text
+    input_ids = tokenizer.encode(text, return_tensors="pt")
 
-# Tokenize the text
-input_ids = tokenizer.encode(text, return_tensors='pt')
+    # Generate the translation
+    outputs = model.generate(input_ids,max_length=50)
+    translation = tokenizer.decode(outputs[0], skip_special_tokens=True)
 
-# Generate the translation
-outputs = model.generate(input_ids)
-translation = tokenizer.decode(outputs[0], skip_special_tokens=True)
-
-print(translation)
+    return translation
