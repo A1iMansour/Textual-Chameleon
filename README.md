@@ -2,7 +2,17 @@
 
 ![Image Alt Text](https://github.com/A1iMansour/Multimodal-Text-Integration-Translation-System/raw/main/process.png)
 
+# How to use
 
+1)Clone the repo: `git clone https://github.com/ZepaMK/RTL-Inpainting.git`  
+2) install reuirements
+
+```bash
+pip install -r requirements.txt
+```
+3) add pictures in imageinput folder
+4) run main.py
+cropped images can be found in ocrimage folder, inpainting results in inpaintout folder, translated text in your terminal
 # References
 
 - https://github.com/advimman/lama/
