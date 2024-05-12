@@ -4,7 +4,7 @@
 
 # How to use
 
-1)Clone the repo: `git clone https://github.com/ZepaMK/RTL-Inpainting.git`  
+1)Clone the repo: `https://github.com/A1iMansour/Textual-Chameleon.git`  
 2) install reuirements
 
 ```bash
