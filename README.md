@@ -13,6 +13,11 @@ pip install -r requirements.txt
 3) add pictures in imageinput folder
 4) run main.py
 cropped images can be found in ocrimage folder, inpainting results in inpaintout folder, translated text in your terminal
+
+#ToDO:
+1) Improve image inpainting using LAMA
+2) Style Fusion
+
 # References
 
 - https://github.com/advimman/lama/
