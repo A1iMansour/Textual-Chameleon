@@ -14,7 +14,7 @@ pip install -r requirements.txt
 4) run main.py
 cropped images can be found in ocrimage folder, inpainting results in inpaintout folder, translated text in your terminal
 
-#ToDO:
+# ToDO:
 1) Improve image inpainting using LAMA
 2) Style Fusion
 
